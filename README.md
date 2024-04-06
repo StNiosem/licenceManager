@@ -9,9 +9,9 @@ Currently, it only works by taking a name, licence code and passphrase and putti
 and Base64-ing the whole of it.
 
 ### example
-Name = StNiosem  
-Licence Code = 123456  
-Passphase = correct horse battery staple  
+Name = `StNiosem`  
+Licence Code = `123456`  
+Passphase = [correct horse battery staple](https://xkcd.com/936/)
 
 ```shell
 Name of the licence owner:
@@ -28,8 +28,7 @@ Your licence:
 U3ROaW9zZW0xMjM0NTZjb3JyZWN0IGhvcnNlIGJhdHRlcnkgc3RhcGxl
 ```
 
-outputs
-U3ROaW9zZW0xMjM0NTZjb3JyZWN0IGhvcnNlIGJhdHRlcnkgc3RhcGxl
+outputs `U3ROaW9zZW0xMjM0NTZjb3JyZWN0IGhvcnNlIGJhdHRlcnkgc3RhcGxl`
 
 
 ## Licence Verifyer
