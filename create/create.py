@@ -1,4 +1,8 @@
 import base64
+import hashlib
+
+
+import base64
 
 retcode = 0
 
@@ -26,9 +30,42 @@ if (licPassPhrase == "") :
     exit(retcode)
 
 licbytes = bytes(licName+licVerifCode+licPassPhrase, 'utf-8')
- 
-licb64 = base64.b64encode(licbytes)
-licb64_decoded = licb64.decode("utf-8")
 
-print("Your licence:\n")
-print(licb64_decoded)
+def main():
+    print("1. Base64")
+    print("2. Base32")
+    print("3. SHA-1")
+    print("4. MD5")
+
+    choice = int(input("Choose an option (1-4): "))
+    if choice == 1:
+        EncodedResult = base64.b64encode(licbytes)
+        algo = "base64"
+    elif choice == 2:
+        EncodedResult = base64.b32encode(licbytes)
+        algo = "base32"
+    elif choice == 3:
+        EncodedResult = hashlib.sha1(licbytes)
+        algo = "SHA-1"
+    elif choice == 4:
+        EncodedResult = hashlib.sha1(licbytes)
+        algo = "MD5"
+    else:
+        return "Invalid choice"
+
+    if choice == 1:
+        result = EncodedResult.decode("utf-8")
+    elif choice == 2:
+        result = EncodedResult.decode("utf-8")
+    elif choice == 3:
+        result = EncodedResult.hexdigest()
+    elif choice == 4:
+        result = EncodedResult.hexdigest()
+    else:
+        return "Invalid choice"
+    print()
+    print("Your " + algo +"-based licence is:")
+    print(result)
+    print()
+
+main()
