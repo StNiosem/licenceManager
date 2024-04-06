@@ -67,7 +67,7 @@ def main():
         EncodedResult = hashlib.sha1(licbytes)
         algo = "SHA-1"
     elif choice == 4:
-        EncodedResult = hashlib.sha1(licbytes)
+        EncodedResult = hashlib.md5(licbytes)
         algo = "MD5"
     else:
         return "Invalid choice"
