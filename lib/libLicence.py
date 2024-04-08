@@ -14,52 +14,7 @@ class bcolors:
 
 retcode = 0
 
-lic = input("Input your licence: \n")
-
-def invoke(mode) :
-
-    print("LICENCE CODE\n")
-
-    if (mode = "validate") :
-        print("VALIDATING LICENCE")
-    elif (mode = "create") :
-        print("ADIOS")
-
-    if (lic.startswith("b'") == True) :
-        print(bcolors.WARNING + "STRING IS NOT CONCATENATED. THIS WILL FAIL!!!" + bcolors.ENDC)
-        retcode = 3
-        exit(retcode)
-    elif (lic == "") :
-        print("You did not input a licence.")
-        retcode = 4
-
-    licName = input("Name of the licence owner:\n")
-    print("\n")
-    if (licName == "") : 
-        print("Licence holder name cannot be blank.")
-        retcode = 5
-        exit(retcode)
-
-    licVerifCode = input("Input the licence verification code:\n")
-    print("\n")
-    if (licVerifCode == "") :
-        print("The Licence Verification Code cannot be blank.")
-        retcode = 6
-        exit(retcode)
-
-    licPassPhrase = input("Input your licence passphrase:\n")
-    print("\n")
-    if (licPassPhrase == "") :
-        print("The Licence Passphrase cannot be empty.")
-        retcode = 7
-        exit(retcode)
-
-    licbytes = bytes(licName+licVerifCode+licPassPhrase, 'utf-8')
-
-    
-
-
-invoke("validate")
+lic = input("Input your licence - IGNORE IF CREATING LICENCE: \n")
 
 def validate():
     print("Choose a licence generation method")
@@ -178,3 +133,50 @@ def create():
     print(result)
     print()
 
+def invoke(mode) :
+
+    print("LICENCE CODE\n")
+
+    if (mode == "validate") :
+        print("VALIDATING LICENCE")
+        validate()
+    elif (mode == "create") :
+        print("CREATING LICENCE")
+        create()
+    else :
+        print("INVALID ARGUMENT -- '" + mode + "' EXITING")
+        
+
+
+    if (lic.startswith("b'") == True) :
+        print(bcolors.WARNING + "STRING IS NOT CONCATENATED. THIS WILL FAIL!!!" + bcolors.ENDC)
+        retcode = 3
+        exit(retcode)
+    elif (lic == "") :
+        print("You did not input a licence.")
+        retcode = 4
+
+    licName = input("Name of the licence owner:\n")
+    print("\n")
+    if (licName == "") : 
+        print("Licence holder name cannot be blank.")
+        retcode = 5
+        exit(retcode)
+
+    licVerifCode = input("Input the licence verification code:\n")
+    print("\n")
+    if (licVerifCode == "") :
+        print("The Licence Verification Code cannot be blank.")
+        retcode = 6
+        exit(retcode)
+
+    licPassPhrase = input("Input your licence passphrase:\n")
+    print("\n")
+    if (licPassPhrase == "") :
+        print("The Licence Passphrase cannot be empty.")
+        retcode = 7
+        exit(retcode)
+
+    licbytes = bytes(licName+licVerifCode+licPassPhrase, 'utf-8')
+
+invoke("ddd")
